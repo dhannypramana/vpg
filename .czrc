@@ -1,0 +1,47 @@
+{
+    "path": "cz-conventional-changelog",
+    "maxHeaderWidth": 150,
+    "maxLineWidth": 150,
+    "types": {
+        "feat": {
+            "description": "✨ A new Feature",
+            "title": "Features"
+        },
+        "fix": {
+            "description": "🔧 A bug fix",
+            "title": "Bug Fixes"
+        },
+        "hotfix": {
+            "description": "🔥 A hot fix on production branch",
+            "title": "Hot Fixes"
+        },
+        "chore": {
+            "description": "🚚 Other changes that don't modify src or test files",
+            "title": "Chores"
+        },
+        "refactor": {
+            "description": "♻️  A code change that neither fixes a bug nor adds a feature",
+            "title": "Code Refactoring"
+        },
+        "test": {
+            "description": "✅ Adding missing tests or correcting existing tests",
+            "title": "Testing"
+        },
+        "docs": {
+            "description": "📝 Documentation only changes",
+            "title": "Documentation"
+        },
+        "style": {
+            "description": "🖼️  Styling",
+            "title": "Styling"
+        },
+        "perf": {
+            "description": "⚡️ A code change that improves performance",
+            "title": "Performance Improvements"
+        },
+        "build": {
+            "description": "🧰 Changes that affect the build system or external dependencies (example scopes: gulp, broccoli, npm)",
+            "title": "Building"
+        }
+    }
+}
