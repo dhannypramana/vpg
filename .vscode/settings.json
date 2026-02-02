@@ -116,8 +116,12 @@
         "eslintcache",
         "njsproj",
         "ntvs",
+        "persistedstate",
+        "unhead",
+        "unplugin",
         "versionrc",
         "Vite",
-        "Vitest"
+        "Vitest",
+        "vueuse"
     ]
 }
