@@ -1,15 +1,5 @@
-<script setup lang="ts"></script>
-
 <template>
-    <h1>You did it!</h1>
-    <p>
-        Visit <a
-            href="https://vuejs.org/"
-            target="_blank"
-            rel="noopener"
-        >vuejs.org</a> to read the
-        documentation
+    <p class="container mx-auto my-8 p-4 border rounded">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta nisi laboriosam dolores dignissimos modi quod delectus quas quaerat vitae eius temporibus, sint possimus cupiditate et placeat quae consequuntur dicta dolor!
     </p>
 </template>
-
-<style scoped></style>

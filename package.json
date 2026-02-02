@@ -32,9 +32,11 @@
         "bump:major": "bun pm version major"
     },
     "dependencies": {
+        "@tailwindcss/vite": "^4.1.18",
         "@vueuse/core": "^14.2.0",
         "pinia": "^3.0.4",
         "pinia-plugin-persistedstate": "^4.7.1",
+        "tailwindcss": "^4.1.18",
         "vee-validate": "^4.15.1",
         "vue": "^3.5.27"
     },

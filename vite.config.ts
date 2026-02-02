@@ -1,4 +1,5 @@
 import path from 'node:path';
+import TailwindCSS from '@tailwindcss/vite';
 import Vue from '@vitejs/plugin-vue';
 import AutoImport from 'unplugin-auto-import/vite';
 import Components from 'unplugin-vue-components/vite';
@@ -14,6 +15,7 @@ export default defineConfig(({ mode }) => {
         plugins: [
             Vue(),
             VueDevTools(),
+            TailwindCSS(),
             AutoImport({
                 imports: [
                     'vue',
