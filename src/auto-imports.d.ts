@@ -20,18 +20,21 @@ declare global {
   const axios: typeof import('axios').default
   const boolean: typeof import('yup').boolean
   const clsx: typeof import('clsx').clsx
+  const cn: typeof import('./common/utils/ClassUtil').cn
   const computed: typeof import('vue').computed
   const computedAsync: typeof import('@vueuse/core').computedAsync
   const computedEager: typeof import('@vueuse/core').computedEager
   const computedInject: typeof import('@vueuse/core').computedInject
   const computedWithControl: typeof import('@vueuse/core').computedWithControl
   const configure: typeof import('vee-validate').configure
+  const containsOnlyNumbers: typeof import('./common/utils/HelperUtil').containsOnlyNumbers
   const controlledComputed: typeof import('@vueuse/core').controlledComputed
   const controlledRef: typeof import('@vueuse/core').controlledRef
   const createApp: typeof import('vue').createApp
   const createEventHook: typeof import('@vueuse/core').createEventHook
   const createGlobalState: typeof import('@vueuse/core').createGlobalState
   const createInjectionState: typeof import('@vueuse/core').createInjectionState
+  const createObjectURL: typeof import('./common/utils/HelperUtil').createObjectURL
   const createPinia: typeof import('pinia').createPinia
   const createReactiveFn: typeof import('@vueuse/core').createReactiveFn
   const createRef: typeof import('@vueuse/core').createRef
@@ -62,12 +65,19 @@ declare global {
   const ignorableWatch: typeof import('@vueuse/core').ignorableWatch
   const inject: typeof import('vue').inject
   const injectLocal: typeof import('@vueuse/core').injectLocal
+  const isArray: typeof import('./common/utils/HelperUtil').isArray
+  const isArrayExist: typeof import('./common/utils/HelperUtil').isArrayExist
   const isDefined: typeof import('@vueuse/core').isDefined
+  const isNil: typeof import('./common/utils/HelperUtil').isNil
+  const isNull: typeof import('./common/utils/HelperUtil').isNull
+  const isNumber: typeof import('./common/utils/HelperUtil').isNumber
+  const isNumeric: typeof import('./common/utils/HelperUtil').isNumeric
   const isProxy: typeof import('vue').isProxy
   const isReactive: typeof import('vue').isReactive
   const isReadonly: typeof import('vue').isReadonly
   const isRef: typeof import('vue').isRef
   const isShallow: typeof import('vue').isShallow
+  const isUndefined: typeof import('./common/utils/HelperUtil').isUndefined
   const makeDestructurable: typeof import('@vueuse/core').makeDestructurable
   const mapActions: typeof import('pinia').mapActions
   const mapGetters: typeof import('pinia').mapGetters
@@ -78,6 +88,8 @@ declare global {
   const mixed: typeof import('yup').mixed
   const nextTick: typeof import('vue').nextTick
   const number: typeof import('yup').number
+  const numberOrNull: typeof import('./common/utils/HelperUtil').numberOrNull
+  const numberOrZero: typeof import('./common/utils/HelperUtil').numberOrZero
   const object: typeof import('yup').object
   const onActivated: typeof import('vue').onActivated
   const onBeforeMount: typeof import('vue').onBeforeMount
@@ -127,16 +139,21 @@ declare global {
   const shallowRef: typeof import('vue').shallowRef
   const storeToRefs: typeof import('pinia').storeToRefs
   const string: typeof import('yup').string
+  const stringOrEmpty: typeof import('./common/utils/HelperUtil').stringOrEmpty
+  const stringOrNull: typeof import('./common/utils/HelperUtil').stringOrNull
   const syncRef: typeof import('@vueuse/core').syncRef
   const syncRefs: typeof import('@vueuse/core').syncRefs
   const templateRef: typeof import('@vueuse/core').templateRef
   const throttledRef: typeof import('@vueuse/core').throttledRef
   const throttledWatch: typeof import('@vueuse/core').throttledWatch
+  const toCapitalizeCase: typeof import('./common/utils/StringUtil').toCapitalizeCase
+  const toLowerCase: typeof import('./common/utils/StringUtil').toLowerCase
   const toRaw: typeof import('vue').toRaw
   const toReactive: typeof import('@vueuse/core').toReactive
   const toRef: typeof import('vue').toRef
   const toRefs: typeof import('vue').toRefs
   const toTypedSchema: typeof import('@vee-validate/yup').toTypedSchema
+  const toUpperCase: typeof import('./common/utils/StringUtil').toUpperCase
   const toValue: typeof import('vue').toValue
   const toast: typeof import('vue-sonner').toast
   const triggerRef: typeof import('vue').triggerRef
@@ -343,6 +360,8 @@ declare global {
   const useWindowScroll: typeof import('@vueuse/core').useWindowScroll
   const useWindowSize: typeof import('@vueuse/core').useWindowSize
   const validate: typeof import('vee-validate').validate
+  const valueOrNull: typeof import('./common/utils/HelperUtil').valueOrNull
+  const valueOrStrip: typeof import('./common/utils/HelperUtil').valueOrStrip
   const watch: typeof import('vue').watch
   const watchArray: typeof import('@vueuse/core').watchArray
   const watchAtMost: typeof import('@vueuse/core').watchAtMost
@@ -366,6 +385,9 @@ declare global {
   // @ts-ignore
   export type { Component, Slot, Slots, ComponentPublicInstance, ComputedRef, DirectiveBinding, ExtractDefaultPropTypes, ExtractPropTypes, ExtractPublicPropTypes, InjectionKey, PropType, Ref, ShallowRef, MaybeRef, MaybeRefOrGetter, VNode, WritableComputedRef } from 'vue'
   import('vue')
+  // @ts-ignore
+  export type { SetupModule, ObjectValues, ObjectKeys, Nullable, Undefined, SelectOption } from './common/types/CommonType'
+  import('./common/types/CommonType')
 }
 
 // for vue template auto import
@@ -386,18 +408,21 @@ declare module 'vue' {
     readonly axios: UnwrapRef<typeof import('axios')['default']>
     readonly boolean: UnwrapRef<typeof import('yup')['boolean']>
     readonly clsx: UnwrapRef<typeof import('clsx')['clsx']>
+    readonly cn: UnwrapRef<typeof import('./common/utils/ClassUtil')['cn']>
     readonly computed: UnwrapRef<typeof import('vue')['computed']>
     readonly computedAsync: UnwrapRef<typeof import('@vueuse/core')['computedAsync']>
     readonly computedEager: UnwrapRef<typeof import('@vueuse/core')['computedEager']>
     readonly computedInject: UnwrapRef<typeof import('@vueuse/core')['computedInject']>
     readonly computedWithControl: UnwrapRef<typeof import('@vueuse/core')['computedWithControl']>
     readonly configure: UnwrapRef<typeof import('vee-validate')['configure']>
+    readonly containsOnlyNumbers: UnwrapRef<typeof import('./common/utils/HelperUtil')['containsOnlyNumbers']>
     readonly controlledComputed: UnwrapRef<typeof import('@vueuse/core')['controlledComputed']>
     readonly controlledRef: UnwrapRef<typeof import('@vueuse/core')['controlledRef']>
     readonly createApp: UnwrapRef<typeof import('vue')['createApp']>
     readonly createEventHook: UnwrapRef<typeof import('@vueuse/core')['createEventHook']>
     readonly createGlobalState: UnwrapRef<typeof import('@vueuse/core')['createGlobalState']>
     readonly createInjectionState: UnwrapRef<typeof import('@vueuse/core')['createInjectionState']>
+    readonly createObjectURL: UnwrapRef<typeof import('./common/utils/HelperUtil')['createObjectURL']>
     readonly createPinia: UnwrapRef<typeof import('pinia')['createPinia']>
     readonly createReactiveFn: UnwrapRef<typeof import('@vueuse/core')['createReactiveFn']>
     readonly createRef: UnwrapRef<typeof import('@vueuse/core')['createRef']>
@@ -428,12 +453,19 @@ declare module 'vue' {
     readonly ignorableWatch: UnwrapRef<typeof import('@vueuse/core')['ignorableWatch']>
     readonly inject: UnwrapRef<typeof import('vue')['inject']>
     readonly injectLocal: UnwrapRef<typeof import('@vueuse/core')['injectLocal']>
+    readonly isArray: UnwrapRef<typeof import('./common/utils/HelperUtil')['isArray']>
+    readonly isArrayExist: UnwrapRef<typeof import('./common/utils/HelperUtil')['isArrayExist']>
     readonly isDefined: UnwrapRef<typeof import('@vueuse/core')['isDefined']>
+    readonly isNil: UnwrapRef<typeof import('./common/utils/HelperUtil')['isNil']>
+    readonly isNull: UnwrapRef<typeof import('./common/utils/HelperUtil')['isNull']>
+    readonly isNumber: UnwrapRef<typeof import('./common/utils/HelperUtil')['isNumber']>
+    readonly isNumeric: UnwrapRef<typeof import('./common/utils/HelperUtil')['isNumeric']>
     readonly isProxy: UnwrapRef<typeof import('vue')['isProxy']>
     readonly isReactive: UnwrapRef<typeof import('vue')['isReactive']>
     readonly isReadonly: UnwrapRef<typeof import('vue')['isReadonly']>
     readonly isRef: UnwrapRef<typeof import('vue')['isRef']>
     readonly isShallow: UnwrapRef<typeof import('vue')['isShallow']>
+    readonly isUndefined: UnwrapRef<typeof import('./common/utils/HelperUtil')['isUndefined']>
     readonly makeDestructurable: UnwrapRef<typeof import('@vueuse/core')['makeDestructurable']>
     readonly mapActions: UnwrapRef<typeof import('pinia')['mapActions']>
     readonly mapGetters: UnwrapRef<typeof import('pinia')['mapGetters']>
@@ -444,6 +476,8 @@ declare module 'vue' {
     readonly mixed: UnwrapRef<typeof import('yup')['mixed']>
     readonly nextTick: UnwrapRef<typeof import('vue')['nextTick']>
     readonly number: UnwrapRef<typeof import('yup')['number']>
+    readonly numberOrNull: UnwrapRef<typeof import('./common/utils/HelperUtil')['numberOrNull']>
+    readonly numberOrZero: UnwrapRef<typeof import('./common/utils/HelperUtil')['numberOrZero']>
     readonly object: UnwrapRef<typeof import('yup')['object']>
     readonly onActivated: UnwrapRef<typeof import('vue')['onActivated']>
     readonly onBeforeMount: UnwrapRef<typeof import('vue')['onBeforeMount']>
@@ -493,16 +527,21 @@ declare module 'vue' {
     readonly shallowRef: UnwrapRef<typeof import('vue')['shallowRef']>
     readonly storeToRefs: UnwrapRef<typeof import('pinia')['storeToRefs']>
     readonly string: UnwrapRef<typeof import('yup')['string']>
+    readonly stringOrEmpty: UnwrapRef<typeof import('./common/utils/HelperUtil')['stringOrEmpty']>
+    readonly stringOrNull: UnwrapRef<typeof import('./common/utils/HelperUtil')['stringOrNull']>
     readonly syncRef: UnwrapRef<typeof import('@vueuse/core')['syncRef']>
     readonly syncRefs: UnwrapRef<typeof import('@vueuse/core')['syncRefs']>
     readonly templateRef: UnwrapRef<typeof import('@vueuse/core')['templateRef']>
     readonly throttledRef: UnwrapRef<typeof import('@vueuse/core')['throttledRef']>
     readonly throttledWatch: UnwrapRef<typeof import('@vueuse/core')['throttledWatch']>
+    readonly toCapitalizeCase: UnwrapRef<typeof import('./common/utils/StringUtil')['toCapitalizeCase']>
+    readonly toLowerCase: UnwrapRef<typeof import('./common/utils/StringUtil')['toLowerCase']>
     readonly toRaw: UnwrapRef<typeof import('vue')['toRaw']>
     readonly toReactive: UnwrapRef<typeof import('@vueuse/core')['toReactive']>
     readonly toRef: UnwrapRef<typeof import('vue')['toRef']>
     readonly toRefs: UnwrapRef<typeof import('vue')['toRefs']>
     readonly toTypedSchema: UnwrapRef<typeof import('@vee-validate/yup')['toTypedSchema']>
+    readonly toUpperCase: UnwrapRef<typeof import('./common/utils/StringUtil')['toUpperCase']>
     readonly toValue: UnwrapRef<typeof import('vue')['toValue']>
     readonly toast: UnwrapRef<typeof import('vue-sonner')['toast']>
     readonly triggerRef: UnwrapRef<typeof import('vue')['triggerRef']>
@@ -709,6 +748,8 @@ declare module 'vue' {
     readonly useWindowScroll: UnwrapRef<typeof import('@vueuse/core')['useWindowScroll']>
     readonly useWindowSize: UnwrapRef<typeof import('@vueuse/core')['useWindowSize']>
     readonly validate: UnwrapRef<typeof import('vee-validate')['validate']>
+    readonly valueOrNull: UnwrapRef<typeof import('./common/utils/HelperUtil')['valueOrNull']>
+    readonly valueOrStrip: UnwrapRef<typeof import('./common/utils/HelperUtil')['valueOrStrip']>
     readonly watch: UnwrapRef<typeof import('vue')['watch']>
     readonly watchArray: UnwrapRef<typeof import('@vueuse/core')['watchArray']>
     readonly watchAtMost: UnwrapRef<typeof import('@vueuse/core')['watchAtMost']>

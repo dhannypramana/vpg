@@ -55,13 +55,13 @@ bun build:staging
 To run tests, run the following command
 
 ```bash
-bun test
+bun run test
 ```
 
 Or you want to test based on UI, run the following command
 
 ```bash
-bun test:ui
+bun run test:ui
 ```
 
 ### Linting

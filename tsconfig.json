@@ -1,13 +1,8 @@
 {
     "compilerOptions": {
-        "baseUrl": ".",
-        "paths": {
-            "@/*": ["./src/*"]
-        },
-        "types": [
-            "unplugin-vue-router/client",
-            "node"
-        ]
+        "composite": true,
+        "module": "ESNext",
+        "moduleResolution": "bundler"
     },
     "references": [
         {
@@ -19,6 +14,9 @@
     ],
     "files": [],
     "include": [
-        "./typed-router.d.ts"
+        "./src/typed-router.d.ts"
+    ],
+    "types": [
+        "unplugin-vue-router/client"
     ]
 }

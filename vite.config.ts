@@ -98,5 +98,11 @@ export default defineConfig(({ mode }) => {
             port,
             strictPort: true,
         },
+
+        test: {
+            environment: 'node',
+            globals: true,
+            include: ['src/**/*.test.ts'],
+        },
     };
 });

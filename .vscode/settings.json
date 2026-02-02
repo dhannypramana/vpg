@@ -120,6 +120,7 @@
         "persistedstate",
         "unhead",
         "unplugin",
+        "uppercases",
         "versionrc",
         "Vite",
         "Vitest",
