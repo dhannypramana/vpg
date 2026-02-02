@@ -1,4 +1,14 @@
 {
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "@/*": ["./src/*"]
+        },
+        "types": [
+            "unplugin-vue-router/client",
+            "node"
+        ]
+    },
     "references": [
         {
             "path": "./tsconfig.node.json"
@@ -7,5 +17,8 @@
             "path": "./tsconfig.app.json"
         }
     ],
-    "files": []
+    "files": [],
+    "include": [
+        "./typed-router.d.ts"
+    ]
 }

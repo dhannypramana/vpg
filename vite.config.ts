@@ -1,9 +1,11 @@
 import path from 'node:path';
 import TailwindCSS from '@tailwindcss/vite';
 import Vue from '@vitejs/plugin-vue';
+import fg from 'fast-glob';
 import AutoImport from 'unplugin-auto-import/vite';
 import Components from 'unplugin-vue-components/vite';
 import { VueRouterAutoImports } from 'unplugin-vue-router';
+import VueRouter from 'unplugin-vue-router/vite';
 import { defineConfig, loadEnv } from 'vite';
 import VueDevTools from 'vite-plugin-vue-devtools';
 
@@ -13,6 +15,17 @@ export default defineConfig(({ mode }) => {
 
     return {
         plugins: [
+            VueRouter({
+                extensions: ['.vue'],
+                dts: 'src/typed-router.d.ts',
+                routesFolder: [
+                    'src/common/pages',
+                    ...fg.sync(
+                        'src/features/**/pages',
+                        { onlyDirectories: true },
+                    ),
+                ],
+            }),
             Vue(),
             VueDevTools(),
             TailwindCSS(),
