@@ -1,3 +1,12 @@
 {
-  "recommendations": ["Vue.volar"]
+    "recommendations": [
+        "antfu.iconify",
+        "dbaeumer.vscode-eslint",
+        "vue.volar",
+        "lokalise.i18n-ally",
+        "streetsidesoftware.code-spell-checker",
+        "eamodio.gitlens",
+        "christian-kohler.path-intellisense",
+        "antfu.goto-alias"
+    ]
 }
