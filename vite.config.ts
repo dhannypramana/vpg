@@ -1,6 +1,7 @@
 import path from 'node:path';
 import Vue from '@vitejs/plugin-vue';
 import AutoImport from 'unplugin-auto-import/vite';
+import Components from 'unplugin-vue-components/vite';
 import { VueRouterAutoImports } from 'unplugin-vue-router';
 import { defineConfig, loadEnv } from 'vite';
 import VueDevTools from 'vite-plugin-vue-devtools';
@@ -57,6 +58,15 @@ export default defineConfig(({ mode }) => {
                     'src/features/**/utils/**',
                 ],
                 vueTemplate: true,
+            }),
+            Components({
+                extensions: ['vue'],
+                include: [/\.vue$/, /\.vue\?vue/],
+                dts: 'src/components.d.ts',
+                dirs: [
+                    'src/common/components',
+                    'src/features/**/components',
+                ],
             }),
         ],
 
