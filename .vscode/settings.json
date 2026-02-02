@@ -113,6 +113,11 @@
     "cSpell.words": [
         "commitlint",
         "czrc",
-        "versionrc"
+        "eslintcache",
+        "njsproj",
+        "ntvs",
+        "versionrc",
+        "Vite",
+        "Vitest"
     ]
 }
