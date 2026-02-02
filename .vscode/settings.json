@@ -110,5 +110,8 @@
     "[jsonc]": {
         "editor.defaultFormatter": "dbaeumer.vscode-eslint"
     },
-    "cSpell.words": []
+    "cSpell.words": [
+        "czrc",
+        "versionrc"
+    ]
 }
