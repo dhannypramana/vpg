@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 definePage({
+    name: 'catchAll',
     meta: {
         layout: 'Blank',
     },
