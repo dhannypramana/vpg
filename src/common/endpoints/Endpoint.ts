@@ -20,7 +20,7 @@ export class Endpoint {
             const value = values[key];
 
             if (match && value)
-                path = path.replace(match, value);
+                path = path.split(match).join(value);
         }
 
         return path;
