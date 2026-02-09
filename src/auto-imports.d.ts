@@ -6,7 +6,10 @@
 // biome-ignore lint: disable
 export {}
 declare global {
+  const ENDPOINT_PATH: typeof import('./common/constants/CommonConstant').ENDPOINT_PATH
+  const ENDPOINT_VERSION: typeof import('./common/constants/CommonConstant').ENDPOINT_VERSION
   const EffectScope: typeof import('vue').EffectScope
+  const Endpoint: typeof import('./common/endpoints/Endpoint').Endpoint
   const FALLBACK_PORT: typeof import('./common/constants/CommonConstant').FALLBACK_PORT
   const FieldContextKey: typeof import('vee-validate').FieldContextKey
   const FormContextKey: typeof import('vee-validate').FormContextKey
@@ -260,6 +263,7 @@ declare global {
   const useIsSubmitting: typeof import('vee-validate').useIsSubmitting
   const useKeyModifier: typeof import('@vueuse/core').useKeyModifier
   const useLastChanged: typeof import('@vueuse/core').useLastChanged
+  const useLayout: typeof import('./common/composables/useLayout').useLayout
   const useLocalStorage: typeof import('@vueuse/core').useLocalStorage
   const useMagicKeys: typeof import('@vueuse/core').useMagicKeys
   const useManualRefHistory: typeof import('@vueuse/core').useManualRefHistory
@@ -281,6 +285,7 @@ declare global {
   const useOffsetPagination: typeof import('@vueuse/core').useOffsetPagination
   const useOnline: typeof import('@vueuse/core').useOnline
   const usePageLeave: typeof import('@vueuse/core').usePageLeave
+  const usePageStore: typeof import('./common/stores/usePageStore').usePageStore
   const useParallax: typeof import('@vueuse/core').useParallax
   const useParentElement: typeof import('@vueuse/core').useParentElement
   const usePerformanceObserver: typeof import('@vueuse/core').usePerformanceObserver
@@ -349,6 +354,7 @@ declare global {
   const useVModels: typeof import('@vueuse/core').useVModels
   const useValidateField: typeof import('vee-validate').useValidateField
   const useValidateForm: typeof import('vee-validate').useValidateForm
+  const useValidation: typeof import('./common/composables/useValidation').useValidation
   const useVibrate: typeof import('@vueuse/core').useVibrate
   const useVirtualList: typeof import('@vueuse/core').useVirtualList
   const useWakeLock: typeof import('@vueuse/core').useWakeLock
@@ -386,6 +392,9 @@ declare global {
   export type { Component, Slot, Slots, ComponentPublicInstance, ComputedRef, DirectiveBinding, ExtractDefaultPropTypes, ExtractPropTypes, ExtractPublicPropTypes, InjectionKey, PropType, Ref, ShallowRef, MaybeRef, MaybeRefOrGetter, VNode, WritableComputedRef } from 'vue'
   import('vue')
   // @ts-ignore
+  export type { Endpoint } from './common/endpoints/Endpoint'
+  import('./common/endpoints/Endpoint')
+  // @ts-ignore
   export type { SetupModule, ObjectValues, ObjectKeys, Nullable, Undefined, SelectOption } from './common/types/CommonType'
   import('./common/types/CommonType')
 }
@@ -395,7 +404,10 @@ import { UnwrapRef } from 'vue'
 declare module 'vue' {
   interface GlobalComponents {}
   interface ComponentCustomProperties {
+    readonly ENDPOINT_PATH: UnwrapRef<typeof import('./common/constants/CommonConstant')['ENDPOINT_PATH']>
+    readonly ENDPOINT_VERSION: UnwrapRef<typeof import('./common/constants/CommonConstant')['ENDPOINT_VERSION']>
     readonly EffectScope: UnwrapRef<typeof import('vue')['EffectScope']>
+    readonly Endpoint: UnwrapRef<typeof import('./common/endpoints/Endpoint')['Endpoint']>
     readonly FieldContextKey: UnwrapRef<typeof import('vee-validate')['FieldContextKey']>
     readonly FormContextKey: UnwrapRef<typeof import('vee-validate')['FormContextKey']>
     readonly QueryClient: UnwrapRef<typeof import('@tanstack/vue-query')['QueryClient']>
@@ -648,6 +660,7 @@ declare module 'vue' {
     readonly useIsSubmitting: UnwrapRef<typeof import('vee-validate')['useIsSubmitting']>
     readonly useKeyModifier: UnwrapRef<typeof import('@vueuse/core')['useKeyModifier']>
     readonly useLastChanged: UnwrapRef<typeof import('@vueuse/core')['useLastChanged']>
+    readonly useLayout: UnwrapRef<typeof import('./common/composables/useLayout')['useLayout']>
     readonly useLocalStorage: UnwrapRef<typeof import('@vueuse/core')['useLocalStorage']>
     readonly useMagicKeys: UnwrapRef<typeof import('@vueuse/core')['useMagicKeys']>
     readonly useManualRefHistory: UnwrapRef<typeof import('@vueuse/core')['useManualRefHistory']>
@@ -669,6 +682,7 @@ declare module 'vue' {
     readonly useOffsetPagination: UnwrapRef<typeof import('@vueuse/core')['useOffsetPagination']>
     readonly useOnline: UnwrapRef<typeof import('@vueuse/core')['useOnline']>
     readonly usePageLeave: UnwrapRef<typeof import('@vueuse/core')['usePageLeave']>
+    readonly usePageStore: UnwrapRef<typeof import('./common/stores/usePageStore')['usePageStore']>
     readonly useParallax: UnwrapRef<typeof import('@vueuse/core')['useParallax']>
     readonly useParentElement: UnwrapRef<typeof import('@vueuse/core')['useParentElement']>
     readonly usePerformanceObserver: UnwrapRef<typeof import('@vueuse/core')['usePerformanceObserver']>
@@ -737,6 +751,7 @@ declare module 'vue' {
     readonly useVModels: UnwrapRef<typeof import('@vueuse/core')['useVModels']>
     readonly useValidateField: UnwrapRef<typeof import('vee-validate')['useValidateField']>
     readonly useValidateForm: UnwrapRef<typeof import('vee-validate')['useValidateForm']>
+    readonly useValidation: UnwrapRef<typeof import('./common/composables/useValidation')['useValidation']>
     readonly useVibrate: UnwrapRef<typeof import('@vueuse/core')['useVibrate']>
     readonly useVirtualList: UnwrapRef<typeof import('@vueuse/core')['useVirtualList']>
     readonly useWakeLock: UnwrapRef<typeof import('@vueuse/core')['useWakeLock']>

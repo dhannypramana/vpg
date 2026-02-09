@@ -30,8 +30,8 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
-    '/[...all]': RouteRecordInfo<
-      '/[...all]',
+    'catchAll': RouteRecordInfo<
+      'catchAll',
       '/:all(.*)',
       { all: ParamValue<true> },
       { all: ParamValue<false> },
@@ -65,7 +65,7 @@ declare module 'vue-router/auto-routes' {
     }
     'src/common/pages/[...all].vue': {
       routes:
-        | '/[...all]'
+        | 'catchAll'
       views:
         | never
     }
